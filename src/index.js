@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import './css/styles.css';
 
 const DEBOUNCE_DELAY = 300;
@@ -10,14 +10,17 @@ const refs = {
     info: document.querySelector('.country-info'),
 };
 
-refs.input.addEventListener('input', (debounce() => {
+refs.input.addEventListener('input', debounce(onInputCountry, DEBOUNCE_DELAY));
+
+function onInputCountry() {
     fetchСountries()
         .then((countries) => renderCountriesList(countries))
         .catch((error) => console.log(error));
-},DEBOUNCE_DELAY));
+}
+
 
 function fetchСountries() {
-    return fetch("https://restcountries.com/v3.1/name").then(
+    return fetch("https://restcountries.com/v3.1/name/{name}").then(
 
         (response) => {
             if (!response.ok) {
@@ -28,6 +31,6 @@ function fetchСountries() {
     )
 };
 
-function renderCountriesList() {
+function renderCountriesList(countries) {
 
-}
+};
