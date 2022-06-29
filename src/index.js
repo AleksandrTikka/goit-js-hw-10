@@ -60,15 +60,13 @@ function renderCountriesList({
     flags,
     name,
 }) {
-    return `<li class country-list__item>
-    
+    return `<li class = "country-list__item">
     <img class = "country-list__img"
     src="${flags.svg}" 
     alt= "${name.official}" 
     width= "30"
     />
     <h2 class "country-list__header">${name.official}</h2>
-     
     </li>     
     
     `    
@@ -86,9 +84,9 @@ function renderCountryInfo({
             <img class="country-info__img"
         src="${flags.svg}" 
         alt= "${name.official}" 
-        width= "50"
+        width= "30"
         />
-        <h2 class "country-info__header">${name.official}</h2>
+        <h2 class = "country-info__header">${name.official}</h2>
         </div >
         <p class = "country-info__paragraph">
             <span class="country-info__bold">Capital:</span>
