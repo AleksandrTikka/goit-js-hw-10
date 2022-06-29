@@ -40,10 +40,11 @@ function onInputCountry(e) {
         }
      }
    )
-        .catch((error) => {
+        .catch(() => {
             clearList();
         clearInfo();
-            Notify.failure(`Oops, there is no country with that name, ${error}`)
+            Notify.failure('Oops, there is no country with that name');
+            // return error;
         });
     
 }

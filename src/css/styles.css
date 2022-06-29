@@ -60,6 +60,7 @@ margin-bottom: 10px;
 .country-info__wrapper {
   display: flex;
   margin-bottom: 25px;
+  align-items: center;
 }
 
 .country-info__header {
