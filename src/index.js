@@ -35,16 +35,16 @@ function onInputCountry(e) {
             clearInfo();
         } if (countries.length === 1) {
             const infoMarkup = countries.map(country => renderCountryInfo(country))
-            refs.info.innerHTML = infoMarkup.join();
+            refs.info.innerHTML = infoMarkup.join('');
             clearList();
         }
      }
    )
-        .catch(() => {
-            clearList();
-        clearInfo();
+        .catch((error) => {
+        //     clearList();
+        // clearInfo();
             Notify.failure('Oops, there is no country with that name');
-            // return error;
+            return error;
         });
     
 }
