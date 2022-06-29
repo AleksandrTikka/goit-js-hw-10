@@ -29,7 +29,7 @@ function onInputCountry(e) {
             clearList();
             clearInfo();
             Notify.info("Too many matches found. Please enter a more specific name.")
-        } if (countries.length > 2 && countries.length < 10) {
+        } if (countries.length >= 2 && countries.length <= 10) {
             const listMarkup = countries.map(country => renderCountriesList(country))
             refs.list.innerHTML = listMarkup.join('');
             clearInfo();
@@ -40,11 +40,11 @@ function onInputCountry(e) {
         }
      }
    )
-        .catch((error) => {
-        //     clearList();
-        // clearInfo();
+        .catch(() => {
+            clearList();
+        clearInfo();
             Notify.failure('Oops, there is no country with that name');
-            return error;
+            // return error;
         });
     
 }
