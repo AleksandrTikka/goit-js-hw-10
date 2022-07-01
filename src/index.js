@@ -15,13 +15,13 @@ const refs = {
 refs.input.addEventListener('input', debounce(onInputCountry, DEBOUNCE_DELAY));
 
 
-
 function onInputCountry(e) {
     const searchName = e.target.value.trim();
     if (searchName === "") {
         clearList();
         clearInfo();
-        return;
+        Notify.info('I see only spaces... Please enter a valid country name!');
+        //  return;
     }
     fetchСountries(searchName)
     .then((countries) => {
@@ -38,13 +38,13 @@ function onInputCountry(e) {
             refs.info.innerHTML = infoMarkup.join('');
             clearList();
         }
-     }
-   )
-        .catch(() => {
+     })
+        .catch((error) => {
+            
+            Notify.failure('Oops, there is no country with that name', `${error}`);
             clearList();
         clearInfo();
-            Notify.failure('Oops, there is no country with that name');
-            // return error;
+            return error;
         });
     
 }
